@@ -7,62 +7,56 @@ package lof
 //////////////////////////////////////////////////////////////////////////////
 
 type ISample interface {
-    GetId() int
-    SetId(int)
-    GetPoint() []float64
-    SetPoint([]float64)
+	GetID() int
+	SetID(int)
+	GetPoint() []float64
+	SetPoint([]float64)
 }
 
-////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////
 //
-//  This type is only used with GetSamplesFromFloat64s().                   
+//  This type is only used with GetSamplesFromFloat64s().
 //
-////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////
 
 type BasicSample struct {
-    Id          int
-    Point       []float64
-    Distance    float64
+	ID       int
+	Point    []float64
+	Distance float64
 }
 
-// Constructor for BasicSample type.
+// NewBasicSample : Constructor for BasicSample type.
 func NewBasicSample(id int, point []float64) *BasicSample {
 
-    return &BasicSample{Point: point, Id: id}
+	return &BasicSample{Point: point, ID: id}
 }
 
-// Given a slice of float64 slices, build BasicSamples
+// GetSamplesFromFloat64s : Given a slice of float64 slices, build BasicSamples
 // treating each float64 slice as a point in sample space.
 func GetSamplesFromFloat64s(points [][]float64) []ISample {
-
-    bSpl := []ISample{}
-    for idx, pt := range points {
-        bSpl = append(bSpl, NewBasicSample(idx, pt))
-    }
-
-    return bSpl
+	bSpl := []ISample{}
+	for idx, pt := range points {
+		bSpl = append(bSpl, NewBasicSample(idx, pt))
+	}
+	return bSpl
 }
 
-// Satisfies ISample interface.
-func (bs *BasicSample) GetId() int {
-
-    return bs.Id
+// GetID : Satisfies ISample interface.
+func (bs *BasicSample) GetID() int {
+	return bs.ID
 }
 
-// Satisfies ISample interface.
-func (bs *BasicSample) SetId(id int) {
-
-    bs.Id = id
+// SetID : Satisfies ISample interface.
+func (bs *BasicSample) SetID(id int) {
+	bs.ID = id
 }
 
-// Satisfies ISample interface.
+// GetPoint : Satisfies ISample interface.
 func (bs *BasicSample) GetPoint() []float64 {
-
-    return bs.Point
+	return bs.Point
 }
 
-// Satisfies ISample interface.
+// SetPoint : Satisfies ISample interface.
 func (bs *BasicSample) SetPoint(point []float64) {
-
-    bs.Point = point
+	bs.Point = point
 }
