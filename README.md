@@ -1,10 +1,18 @@
 # golof
 A Local Outlier Factor algorithm (Markus M. Breunig) implementation in Go.
+Forked from [oopcode/golof](https://github.com/oopcode/golof)
+
 This implementation allows you to choose between updating nearest
 neighbors for all the samples *or* updating nearest neighbors only for
 nearest neighbors of the added sample.
 
-It is not available yet with the `go get` command, so just use the source.
+# Install 
+
+```
+
+go get github.com/twsnmp/golof
+
+```
 
 # Example
 
@@ -115,10 +123,11 @@ Sample: [4.603370800191209 1.3375110154658127],         LOF: 1.843948
 Sample: [-0.685421751407983 -0.7311555298421141],       LOF: 1.310516
 
 ```
-The full example can be found in `./example.go`.
 
-# TODO
+![Result](./examples/chart/points.png)
 
-* Add normalization for samples
-* Write tests
-* Enable parallel mode for distances calculation
+Red point is annomaly(factor > 1.5)
+
+The full example can be found in [here](./examples/).
+
+
